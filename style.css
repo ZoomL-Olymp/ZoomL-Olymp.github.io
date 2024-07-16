@@ -11,8 +11,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #333; 
-    scroll-behavior: smooth; 
+    color: #333;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -21,85 +21,53 @@ body {
     padding: 0 20px;
 }
 
+/* Header */
 header {
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(5px);
 }
 
 .header-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .left-menu {
-    margin-right: 30px; /* Отступ справа от левого меню */
-  }
-  
-  .right-menu {
-    margin-left: 30px;  /* Отступ слева от правого меню */
-  }
-  
-  .logo img {
-    height: 100px;
-  }
-  
-  .nav-menu {
-    display: flex;
-    list-style: none;
-  }
-  
-  .nav-menu li {
-    margin-left: 10px; 
-  }
-
-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
+.logo img {
+    height: 100px;
 }
 
-.logo-highlight {
-    color: #007bff;
-}
-
-ul {
-    list-style: none;
+.nav-menu {
     display: flex;
+    list-style: none;
 }
 
-li {
+.nav-menu li {
     margin-left: 30px;
 }
 
-a {
+.nav-link {
     text-decoration: none;
-    color: #333; 
+    color: #333;
     transition: color 0.3s ease;
 }
 
-a:hover {
+.nav-link:hover {
     color: #007bff;
 }
 
+/* Hero */
 .hero {
     background-image: url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    min-height: 100vh; 
+    min-height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
@@ -117,6 +85,7 @@ a:hover {
     margin-bottom: 30px;
 }
 
+/* Кнопка */
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -131,31 +100,39 @@ a:hover {
     background-color: #0069d9;
 }
 
-.services {
+/* Секции (Services, Approach, Documentation, Contacts) */
+.services, 
+.approach, 
+.documentation, 
+.contacts {
     padding: 80px 0;
     text-align: center;
 }
 
-.services h2 {
+.services h2,
+.approach h2,
+.documentation h2,
+.contacts h2 {
     font-size: 36px;
     margin-bottom: 30px;
-    color: #333; 
+    color: #333;
 }
 
+/* Services */
 .services-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px; 
+    gap: 30px;
 }
 
 .service {
-    width: calc(50% - 30px); 
+    width: calc(50% - 30px);
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    background-color: #fff; 
+    background-color: #fff;
 }
 
 .service:hover {
@@ -187,23 +164,16 @@ a:hover {
 .service h3 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #333; 
+    color: #333;
 }
 
 .service p {
-    color: #333; 
+    color: #333;
 }
 
+/* Approach */
 .approach {
     background-color: #f8f9fa;
-    padding: 80px 0;
-}
-
-.approach h2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333; 
 }
 
 .approach-steps {
@@ -218,7 +188,7 @@ a:hover {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-    background-color: #fff; 
+    background-color: #fff;
 }
 
 .step:hover {
@@ -228,24 +198,14 @@ a:hover {
 .step h3 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #333; 
+    color: #333;
 }
 
 .step p {
-    color: #333; 
+    color: #333;
 }
 
-.documentation {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.documentation h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #333; 
-}
-
+/* Documentation */
 .document-item {
     background-color: #fff;
     padding: 30px;
@@ -263,29 +223,18 @@ a:hover {
     height: 80px;
 }
 
-
 .additional-info {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.8s ease-in-out; /* Увеличили время анимации */
-    margin-top: 10px; 
+    transition: max-height 0.8s ease-in-out;
+    margin-top: 10px;
 }
 
 .additional-info.show {
-    max-height: 400px; /* Увеличили максимальную высоту */
+    max-height: 400px;
 }
 
-.contacts {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.contacts h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #333; 
-}
-
+/* Contacts */
 .contacts ul {
     list-style: none;
     margin: 0;
@@ -297,13 +246,14 @@ a:hover {
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: #333; 
+    color: #333;
 }
 
 .contacts li img {
     margin-right: 10px;
 }
 
+/* Footer */
 footer {
     background-color: #333;
     color: #fff;
@@ -327,6 +277,41 @@ footer {
     transform: translateY(0);
 }
 
-.nav-link, .btn {
-    scroll-behavior: smooth;
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav-menu li {
+        margin: 10px 0; /* Вертикальные отступы */
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .services-grid {
+        flex-direction: column;
+    }
+
+    .service {
+        width: 100%;
+    }
+
+    .approach-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .document-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .document-item img {
+        margin-bottom: 20px;
+    }
 }
