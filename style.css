@@ -32,6 +32,33 @@ header {
     backdrop-filter: blur(5px); 
 }
 
+.header-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .left-menu {
+    margin-right: 30px; /* Отступ справа от левого меню */
+  }
+  
+  .right-menu {
+    margin-left: 30px;  /* Отступ слева от правого меню */
+  }
+  
+  .logo img {
+    height: 100px;
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-menu li {
+    margin-left: 10px; 
+  }
+
 nav {
     display: flex;
     justify-content: space-between;
