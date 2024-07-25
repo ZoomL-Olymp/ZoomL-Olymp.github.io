@@ -3,12 +3,12 @@ window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('.hero, .services, .approach, .documentation, .contacts');
 
   sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
+    const sectionTop = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
 
-      if (sectionTop < windowHeight * 0.8) {
-          section.classList.add('appear');
-      }
+    if (sectionTop < windowHeight * 0.8) {
+      section.classList.add('appear');
+    }
   });
 });
 
@@ -17,13 +17,13 @@ const toggleInfoButtons = document.querySelectorAll(".toggle-info");
 
 toggleInfoButtons.forEach(button => {
   button.addEventListener("click", (event) => {
-      event.preventDefault();
-      const additionalInfo = button.previousElementSibling;
-      additionalInfo.classList.toggle("show");
+    event.preventDefault();
+    const additionalInfo = button.previousElementSibling;
+    additionalInfo.classList.toggle("show");
 
-      button.textContent = additionalInfo.classList.contains("show")
-          ? "Скрыть"
-          : "Подробнее";
+    button.textContent = additionalInfo.classList.contains("show")
+      ? "Скрыть"
+      : "Подробнее";
   });
 });
 
@@ -31,6 +31,21 @@ toggleInfoButtons.forEach(button => {
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
-menuToggle.addEventListener('click', () => {
-navMenu.classList.toggle('show');
+function toggleMenu() {
+  navMenu.classList.toggle('show');
+}
+
+menuToggle.addEventListener('click', toggleMenu);
+
+// Закрытие меню при клике вне его
+document.addEventListener('click', (event) => {
+  const isClickInsideMenu = menuToggle.parentElement.contains(event.target);
+
+  if (!isClickInsideMenu && navMenu.classList.contains('show')) {
+    navMenu.addEventListener('animationend', () => {
+      navMenu.classList.remove('show');
+    }, { once: true });
+
+    navMenu.classList.remove('show');
+  }
 });
