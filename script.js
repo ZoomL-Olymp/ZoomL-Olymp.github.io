@@ -1,6 +1,9 @@
 // Анимация появления секций при прокрутке
+const hero = document.querySelector('.hero');
+hero.classList.add('appear')
+
 window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('.hero, .services, .approach, .documentation, .contacts');
+  const sections = document.querySelectorAll('.services, .approach, .documentation, .contacts');
 
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;

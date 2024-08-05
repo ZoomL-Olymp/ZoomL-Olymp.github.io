@@ -128,24 +128,7 @@ header {
   align-items: center;
   text-align: center;
   padding-top: 80px;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: ""; /* Обязательно для псевдоэлементов */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(20, 29, 43, 0.1); /* Цвет затемнения */
-  opacity: 0; /* Изначально прозрачный */
-  transition: opacity 1s ease; /* Плавный переход */
-  z-index: 1; /* Помещаем затемнение под текст и кнопку */
-}
-
-.hero:hover::before {
-  opacity: 1; /* Затемняем при наведении */
+  overflow: visible;
 }
 
 .hero h1,
@@ -164,10 +147,6 @@ header {
   background-color: rgba(20, 29, 43, 0.8); 
   opacity: 0;
   transition: opacity 1s ease;
-}
-
-.hero:hover .hero-overlay {
-  opacity: 1;
 }
 
 .hero h1 {
