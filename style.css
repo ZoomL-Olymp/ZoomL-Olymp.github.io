@@ -27,7 +27,7 @@ body {
 /* Header */
 header {
   background-color: rgba(20, 29, 43, 0.9); /* Полупрозрачный тёмно-синий header */
-  padding: 20px 0;
+  padding: 10px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -37,6 +37,8 @@ header {
 }
 
 .header-nav {
+  box-sizing: border-box;
+  flex-grow: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,10 +46,27 @@ header {
 
 .logo img {
   height: 100px;
+  flex-shrink: 0;
 }
 
-.nav-menu {
+@media (max-width: 1200px) { 
+  .logo img {
+    height: 80px;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo img {
+    height: 60px;
+  }
+}
+
+.nav-menu { 
+  box-sizing: border-box;
+  flex-grow: 1;
   display: flex;
+  justify-content: center;
+  justify-content: flex-end;
   list-style: none;
   transition: transform 0.3s ease-in-out; /* Изменено на transform */
   transform: translateX(100%); /* Начальное положение: скрыто справа */
@@ -77,7 +96,7 @@ header {
   transform: translateX(0); /* Показываем меню */
 }
 
-.menu-container { 
+.menu-container {   
   position: relative; /* Чтобы позиционировать меню */
 }
 
@@ -120,7 +139,7 @@ header {
 /* Hero */
 .hero {
   position: relative;
-  background-image: url('images/hero-bg.jpeg'); 
+  background-image: url('images/hero-bg.png'); 
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 80px);

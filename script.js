@@ -15,21 +15,6 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Раскрывающийся блок в секции "Документация"
-const toggleInfoButtons = document.querySelectorAll(".toggle-info");
-
-toggleInfoButtons.forEach(button => {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    const additionalInfo = button.previousElementSibling;
-    additionalInfo.classList.toggle("show");
-
-    button.textContent = additionalInfo.classList.contains("show")
-      ? "Скрыть"
-      : "Подробнее";
-  });
-});
-
 // Обработка клика на гамбургер-меню
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
