@@ -1,5 +1,3 @@
-/* style.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* Сброс стилей */
@@ -9,13 +7,19 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+
 /* Основные стили */
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  background-color: #141D2B; /* Тёмно-синий фон */
-  color: #E7E9EB; /* Светлый текст (почти белый) для контраста */
+  background-color: #141D2B;
+  color: #E7E9EB;
   scroll-behavior: smooth;
+  overflow: auto;
 }
 
 .container {
@@ -26,7 +30,7 @@ body {
 
 /* Header */
 header {
-  background-color: rgba(20, 29, 43, 0.9); /* Полупрозрачный тёмно-синий header */
+  background-color: rgba(20, 29, 43, 0.9);
   padding: 10px 0;
   position: fixed;
   top: 0;
@@ -37,8 +41,6 @@ header {
 }
 
 .header-nav {
-  box-sizing: border-box;
-  flex-grow: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,43 +63,39 @@ header {
   }
 }
 
-.nav-menu { 
-  box-sizing: border-box;
-  flex-grow: 1;
+/* Навигационное меню */
+.nav-menu {
   display: flex;
-  justify-content: center;
   justify-content: flex-end;
   list-style: none;
-  transition: transform 0.3s ease-in-out; /* Изменено на transform */
-  transform: translateX(100%); /* Начальное положение: скрыто справа */
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(120%); 
 }
 
-/* Анимация для меню */
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
+@media (max-width: 768px) {
+  .nav-menu {
+    top: 100%;
+    right: 0; 
+    width: 250px;
+    background-color: #212D3F; 
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); 
+    flex-direction: column; 
+    position: absolute; 
   }
-  to {
-    transform: translateX(0); 
+
+  .nav-menu li {
+    margin-left: 0;
+    margin-bottom: 15px; 
   }
 }
-
-@keyframes slideOut {
-  from {
-    transform: translateX(0); 
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
 
 .nav-menu.show {
-  transform: translateX(0); /* Показываем меню */
+  transform: translateX(0);
 }
 
 .menu-container {   
-  position: relative; /* Чтобы позиционировать меню */
+  position: relative;
 }
 
 .nav-menu li {
@@ -106,12 +104,12 @@ header {
 
 .nav-link {
   text-decoration: none;
-  color: #E7E9EB; /* Светлый текст для ссылок */
+  color: #E7E9EB;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #3498DB; /* Ярко-синий при наведении на ссылку */
+  color: #3498DB;
 }
 
 /* Гамбургер-меню */
@@ -125,14 +123,20 @@ header {
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-right: 0; /* Убираем правый отступ */
-  margin-left: 20px; /* Добавляем левый отступ */
+  margin-right: 0;
+  margin-left: 20px; 
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; 
+  }
 }
 
 .bar {
   height: 3px;
   width: 100%;
-  background-color: #3498DB; /* Цвет полосок меню - ярко-синий */
+  background-color: #3498DB;
   border-radius: 10px;
 }
 
@@ -153,7 +157,7 @@ header {
 .hero h1,
 .hero p,
 .hero .btn {
-  position: relative; /* Помещаем текст и кнопку над затемнением */
+  position: relative; 
   z-index: 2; 
 }
 
@@ -170,66 +174,75 @@ header {
 
 .hero h1 {
   font-size: 48px;
-  color: #E7E9EB; /* Светлый текст */
+  color: #E7E9EB;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+  }
 }
 
 .hero p {
   font-size: 18px;
-  color: #E7E9EB; /* Светлый текст */
+  color: #E7E9EB;
   margin-bottom: 30px;
 }
 
 /* Кнопка */
 .btn {
   display: inline-block;
-  padding: 12px 30px;
-  background-color: #3498DB; /* Ярко-синяя кнопка */
+  background-color: #3498DB;
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;
   transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+  font-size: 18px; 
+  border-radius: 10px;
+  padding: 10px 20px; 
 }
 
 .btn:hover {
-  background-color: #2980B9; /* Более тёмный синий при наведении */
+  background-color: #2980B9;
 }
 
 /* Секции */
 .services, 
-.approach, 
-.documentation, 
+.approach,
 .contacts {
   padding: 80px 0;
   text-align: center;
-  background-color: #1A2534; /* Чуть более светлый синий фон */
+  background-color: #1A2534;
 }
 
 .services h2,
 .approach h2,
-.documentation h2,
 .contacts h2 {
   font-size: 36px;
   margin-bottom: 30px;
-  color: #E7E9EB; /* Светлый текст */
+  color: #E7E9EB; 
 }
 
 /* Services */
 .services-grid {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
 .service {
-  width: auto;
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  background-color: #212D3F; /* Тёмно-синий фон для блоков */
+  background-color: #212D3F; 
 }
 
 .service:hover {
@@ -262,16 +275,20 @@ header {
 .service h3 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #E7E9EB; /* Светлый текст */
+  color: #E7E9EB; 
 }
 
 /* Approach */
 .approach-steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Создаем 3 колонки */
-  grid-template-rows: repeat(2, 1fr);    /* Создаем 2 строки */
-  gap: 10px; /* Добавляем отступ между карточками */
+  grid-template-columns: repeat(3, 1fr); 
   grid-gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .approach-steps {
+    grid-template-columns: 1fr; 
+  }
 }
 
 .step {
@@ -280,7 +297,7 @@ header {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
-  background-color: #212D3F; /* Тёмно-синий фон */
+  background-color: #212D3F; 
   padding-bottom: 40px;
 }
 
@@ -293,7 +310,7 @@ header {
 .step h3 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #E7E9EB; /* Светлый текст */
+  color: #E7E9EB; 
   max-width: 90%; 
   margin-left: auto;
   margin-right: auto;
@@ -301,42 +318,8 @@ header {
 }
 
 .step p {
-  color: #E7E9EB; /* Светлый текст */
+  color: #E7E9EB;
   hyphens: auto; 
-}
-
-/* Documentation */
-.documentation {
-  background-color: #1A2534; /* Светло-синий фон */
-}
-
-.document-item {
-  background-color: #212D3F; 
-  padding: 30px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  color: #E7E9EB; 
-}
-
-.document-item img {
-  width: 80px;
-  height: 80px;
-}
-
-.additional-info {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.8s ease-in-out;
-  margin-top: 10px;
-}
-
-.additional-info.show {
-  max-height: 400px;
 }
 
 /* Contacts */
@@ -356,7 +339,7 @@ header {
 
 .contacts li img {
   margin-right: 10px;
-  filter: invert(100%); /* Инвертируем цвет иконки */
+  filter: invert(100%);
 }
 
 /* Footer */
@@ -371,7 +354,6 @@ footer {
 .hero, 
 .services, 
 .approach, 
-.documentation, 
 .contacts {
   opacity: 0;
   transform: translateY(50px);
@@ -383,90 +365,97 @@ footer {
   transform: translateY(0);
 }
 
-/* Services */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 колонки */
-  gap: 30px;
+/* Модальное окно */
+.modal {
+  display: none; 
+  position: absolute;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-  .nav-menu {
-    /* position: fixed;  Убираем фиксированное позиционирование */
-    top: 100%; /* Позиционируем меню ниже header */
-    right: 0; 
-    height: auto; /* Высота будет рассчитываться автоматически */
-    width: 250px;
-    background-color: #212D3F; 
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); 
-    transform: translateX(125%); 
-    flex-direction: column; 
-    position: absolute; /* Делаем позиционирование абсолютным */
-  }
+.modal-content {
+  background-color: #28364A;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 500px;
+  border-radius: 5px;
+  position: relative; 
+  overflow: hidden;
+}
 
-  .nav-menu.show {
-    transform: translateX(0); /* Показываем меню */
-  }
-  
-  .nav-menu li {
-    margin-left: 0;
-    margin-bottom: 15px; /* Больше пространства между пунктами */
-  }
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-  .menu-toggle {
-    display: flex; /* Показываем кнопку на мобильных */
-  }
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-    .hero h1 {
-        font-size: 36px;
-    }
+/* Форма заявки */
+#application-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
 
-    .services-grid {
-        flex-direction: column;
-    }
+#application-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .service {
-        width: 100%;
-    }
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
 
-    .approach-steps {
-        grid-template-columns: 1fr;
-    }
+.form-group label {
+  white-space: nowrap; 
+}
 
-    .document-item {
-        flex-direction: column;
-        align-items: center;
-    }
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #212D3F;
+  color: #E7E9EB;
+}
 
-    .document-item img {
-        margin-bottom: 20px;
-    }
+.form-group a { 
+  color: #fff; 
+}
 
-    /* Другие стили для мобильной версии */
-    .hero h1 {
-      font-size: 36px;
-    }
+.form-group input[type="checkbox"] {
+  margin-right: 10px; 
+}
 
-    .services-grid {
-      flex-direction: column; /* Блоки услуг друг под другом */
-    }
-
-    .service {
-      width: 100%; /* Блоки услуг на всю ширину */
-    }
-
-    .approach-steps {
-      grid-template-columns: 1fr; /* Одна колонка для этапов */
-    }
-
-    .document-item {
-      flex-direction: column;
-      align-items: center; 
-    }
-
-    .document-item img {
-      margin-bottom: 20px;
-  }
+input::placeholder { /* Chrome/Opera/Safari */
+  color: #ccc; 
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: #ccc; 
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: #ccc; 
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #ccc; 
 }

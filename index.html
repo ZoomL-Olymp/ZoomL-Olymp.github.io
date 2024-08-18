@@ -6,6 +6,7 @@
     <title>КонсалтИБ | Консалтинг нового уровня</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/logo.png">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script> 
 </head>
 <body>
 
@@ -25,11 +26,10 @@
               <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">О нас</a></li>
                 <li><a href="#services" class="nav-link">Услуги</a></li>
-                <li><a href="#apply" class="nav-link">Оставить заявку</a></li>
+                <li><a href="#apply" class="nav-link" onclick="openModal()">Оставить заявку</a></li> 
                 <li><a href="#contacts" class="nav-link">Контакты</a></li>
               </ul>
             </div>
-    
           </nav>
         </div>
       </header>
@@ -40,116 +40,161 @@
             <div class="container">
               <h1>Консультации ИБ нового уровня</h1>
               <p>Основной наш принцип — когда процессы информационной безопасности работают</p>
-              <a href="#services" class="btn">Оставить заявку</a>
+              <a href="#apply" class="btn" onclick="openModal()">Оставить заявку</a> 
             </div>
         </section>
-    <section class="services" id="services">
-        <div class="container">
-            <h2>Наши услуги</h2>
-            <div class="services-grid">
-                <div class="service">
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <img src="images/icons/icon1.png" alt="Иконка услуги 1">
-                        </div>
-                        <h3>Пакет "Киберщит"</h3>
-                        <p>Оценка состояния защищенности бизнес-процессов компании. Аудит ИТ и ИБ инфраструктуры, выявление уязвимых мест, разработка рекомендаций по оптимизации и совершенствованию.</p>
-                        <br>
-                        <a href="files/Консалтинг_ИБ_Пакет_Киберщит_v1.pdf" download="Пакет Киберщит" class="btn"> Подробнее </a>
-                    </div>
-                </div>
-                <div class="service">
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <img src="images/icons/icon2.png" alt="Иконка услуги 2">
-                        </div>
-                        <h3>Пакет "Киберщит+"</h3>
-                        <p>Дополнительно проводится оценка и анализ защищенности и конфигурации инфраструктуры разработки.</p>
-                    </div>
-                </div>
-                <div class="service">
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <img src="images/icons/icon_wip.png" alt="Иконка услуги 3">
-                        </div>
-                        <h3>В разработке!</h3>
-                        <p>Ожидайте изменений.</p>
-                    </div>
-                </div>
-                <div class="service">
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <img src="images/icons/icon_wip.png" alt="Иконка услуги 4">
-                        </div>
-                        <h3>В разработке!</h3>
-                        <p>Ожидайте изменений.</p>
-                    </div>
-                </div>
+
+        <section class="services" id="services">
+          <div class="container">
+              <h2>Наши услуги</h2>
+              <div class="services-grid">
+                  <div class="service">
+                      <div class="service-content">
+                          <div class="service-icon">
+                              <img src="images/icons/icon1.png" alt="Иконка услуги 1">
+                          </div>
+                          <h3>Пакет "Киберщит"</h3>
+                          <p>Оценка состояния защищенности бизнес-процессов компании. Аудит ИТ и ИБ инфраструктуры, выявление уязвимых мест, разработка рекомендаций по оптимизации и совершенствованию.</p>
+                          <a href="files/Консалтинг_ИБ_Пакет_Киберщит_v1.pdf" target="_blank" download="Пакет Киберщит" class="btn"> Подробнее </a>
+                      </div>
+                  </div>
+                  <div class="service">
+                      <div class="service-content">
+                          <div class="service-icon">
+                              <img src="images/icons/icon2.png" alt="Иконка услуги 2">
+                          </div>
+                          <h3>Пакет "Киберщит+"</h3>
+                          <p>Дополнительно проводится оценка и анализ защищенности и конфигурации инфраструктуры разработки.</p>
+                      </div>
+                  </div>
+                  <div class="service">
+                      <div class="service-content">
+                          <div class="service-icon">
+                              <img src="images/icons/icon_wip.png" alt="Иконка услуги 3">
+                          </div>
+                          <h3>В разработке!</h3>
+                          <p>Ожидайте изменений.</p>
+                      </div>
+                  </div>
+                  <div class="service">
+                      <div class="service-content">
+                          <div class="service-icon">
+                              <img src="images/icons/icon_wip.png" alt="Иконка услуги 4">
+                          </div>
+                          <h3>В разработке!</h3>
+                          <p>Ожидайте изменений.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="approach" id="approach">
+          <div class="container">
+              <h2>Наши принципы</h2>
+              <div class="approach-steps">
+                  <div class="step">
+                      <h3>Принцип 1</h3>
+                      <p>Для нас важно, чтобы процессы информационной безопасности были эффективными и не применялись формально.</p>
+                  </div>
+                  <div class="step">
+                      <h3>Принцип 2</h3>
+                      <p>Только комплексный подход позволяет обеспечить максимальный уровень защищённости.</p>
+                  </div>
+                  <div class="step">
+                      <h3>Принцип 3</h3>
+                      <p>Подразделение информационной безопасности должно быть независимым звеном организации и взаимодействовать напрямую с бизнесом.</p>
+                  </div>
+                  <div class="step">
+                      <h3>Принцип 4</h3>
+                      <p>Информационная безопасность организации должна иметь свойства рациональности и достаточности.</p>
+                  </div>
+                  <div class="step">
+                      <h3>Принцип 5</h3>
+                      <p>Конфликт между информационной безопасностью и информационными технологиями — это миф! И те, и другие преследуют одни и те же цели, просто используют разные инструменты.</p>
+                  </div>
+                  <div class="step">
+                      <h3>Принцип 6</h3>
+                      <p>Чаще всего проще нажать "галку" - чем платить 20 млн рублей!</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+        <section class="contacts" id="contacts">
+            <div class="container">
+                <h2>Контакты</h2>
+                <p>Свяжитесь с нами, чтобы получить бесплатную консультацию и узнать больше о наших услугах.</p>
+                <ul>
+                    <li>
+                        <img src="images/icons/phone-icon.png" alt="Иконка телефона">
+                        +7 (991) 630-29-12
+                    </li>
+                    <li>
+                        <img src="images/icons/email-icon.png" alt="Иконка почты">
+                        sale@consultib.ru
+                    </li>
+                    <li>
+                        <a href="https://t.me/ConsultIS" target="_blank">
+                        <img src="images/icons/tg-icon.png" alt="Иконка Telegram">
+                        </a>
+                        Telegram
+                    </li>
+                    <li>
+                        <a href="https://wa.me/message/4KC6R5RJCUDPN1" target="_blank">
+                        <img src="images/icons/wa-icon.png" alt="Иконка WhatsApp">
+                        </a>
+                        WhatsApp
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="approach" id="approach">
-        <div class="container">
-            <h2>Наши принципы</h2>
-            <div class="approach-steps">
-                <div class="step">
-                    <p>Для нас важно, чтобы процессы информационной безопасности были эффективными и не применялись формально.</p>
-                </div>
-                <div class="step">
-                    <p>Только комплексный подход позволяет обеспечить максимальный уровень защищённости.</p>
-                </div>
-                <div class="step">
-                    <p>Подразделение информационной безопасности должно быть независимым звеном организации и взаимодействовать напрямую с бизнесом.</p>
-                </div>
-                <div class="step">
-                    <p>Информационная безопасность организации должна иметь свойства рациональности и достаточности.</p>
-                </div>
-                <div class="step">
-                    <p>Конфликт между информационной безопасностью и информационными технологиями — это миф! И те, и другие преследуют одни и те же цели, просто используют разные инструменты.</p>
-                </div>
-                <div class="step">
-                    <p>Чаще всего проще нажать "галку" - чем платить 20 млн рублей!</p>
-                </div>
+        <div id="application-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-modal">×</span>
+            <section class="apply" id="apply">
+              <div class="container">
+                <h2>Оставить заявку</h2>
+                <form id="application-form" action="send_email.php" method="post"> 
+                  <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="ФИО" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Почта" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="organization" name="organization" placeholder="Организация">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="inn" name="inn" placeholder="ИНН организации">
+                  </div>
+                  <div class="form-group">
+                    <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
+                    <label for="gdpr-consent">
+                      Даю согласие на <a href="files/privacy_policy.pdf" target="_blank">обработку персональных данных</a>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                  </div>
+                  <button type="button" class="btn">Отправить</button>
+                </form>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <p>© 2024 ConsultIB. Все права защищены.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="contacts" id="contacts">
-        <div class="container">
-            <h2>Контакты</h2>
-            <p>Свяжитесь с нами, чтобы получить бесплатную консультацию и узнать больше о наших услугах.</p>
-            <ul>
-                <li>
-                    <img src="images/icons/phone-icon.png" alt="Иконка телефона">
-                    +7 (991) 630-29-12
-                </li>
-                <li>
-                    <img src="images/icons/email-icon.png" alt="Иконка почты">
-                    sale@consultib.ru
-                </li>
-                <li>
-                    <a href="https://t.me/ConsultIS">
-                    <img src="images/icons/tg-icon.png" alt="Иконка Telegram">
-                    </a>
-                    Telegram
-                </li>
-                <li>
-                    <a href="https://wa.me/message/4KC6R5RJCUDPN1">
-                    <img src="images/icons/wa-icon.png" alt="Иконка WhatsApp">
-                    </a>
-                    WhatsApp
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>© 2024 ConsultIB. Все права защищены.</p>
-        </div>
-    </footer>
+        </footer>
     </main>
+
     <script src="script.js"></script>
 
 </body>
