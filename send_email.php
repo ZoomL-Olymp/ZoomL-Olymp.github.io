@@ -1,7 +1,7 @@
 <?php
 
 // Получение секретного ключа reCAPTCHA из переменной окружения (рекомендуется)
-$secretKey = getenv('RECAPTCHA_SECRET_KEY');
+$secretKey = "6LepcCkqAAAAAKJ8DRaaR0OzUe6NgcujWbo5UsVs"
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
