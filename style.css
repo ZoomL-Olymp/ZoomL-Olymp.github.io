@@ -191,7 +191,8 @@ header {
 }
 
 /* Кнопка */
-.btn {
+.btn,
+.g-recaptcha {
   display: inline-block;
   background-color: #3498DB;
   color: #fff;
