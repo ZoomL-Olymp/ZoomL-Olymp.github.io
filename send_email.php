@@ -3,7 +3,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
 
   // Валидация reCAPTCHA
-  $secretKey = '6LcuZSkqAAAAAGBfTsTPPddh9kD8EJJ9-3JBLuBN';
+  $secretKey = '6LepcCkqAAAAAKJ8DRaaR0OzUe6NgcujWbo5UsVs';
   $response = $_POST['g-recaptcha-response'];
 
   // Проверка, что ответ reCAPTCHA не пустой
