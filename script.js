@@ -32,7 +32,6 @@ const sections = document.querySelectorAll('.hero, .services, .approach, .contac
 const body = document.body;
 
 function checkVisibility() {
-  console.log("checkVisibility called"); // Для отладки
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
@@ -43,10 +42,7 @@ function checkVisibility() {
   });
 }
 
-body.addEventListener('scroll', checkVisibility); // Убедитесь, что обработчик события подключен
-body.addEventListener ("scroll",() => {
-  console.log("white creativity");
-})
+body.addEventListener('scroll', checkVisibility);
 checkVisibility(); // Проверяем видимость при загрузке страницы
 
 // --- Обработка клика на гамбургер-меню --- 
@@ -69,6 +65,8 @@ document.addEventListener('click', (event) => {
 // --- Обработка отправки формы ---
 
 const form = document.getElementById('application-form');
+const formStatus = document.createElement('div'); // Создаем элемент для отображения статуса
+form.parentNode.insertBefore(formStatus, form.nextSibling); // Добавляем его после формы
 
 form.addEventListener('submit', function(event) {
   event.preventDefault(); // Предотвращаем отправку формы по умолчанию
@@ -93,14 +91,16 @@ form.addEventListener('submit', function(event) {
   .then(data => {
     // Обрабатываем успешный ответ сервера
     console.log(data); 
-    alert('Заявка успешно отправлена!'); 
+    formStatus.textContent = 'Заявка успешно отправлена!';
+    formStatus.style.color = 'green';
     form.reset(); // Очищаем форму
     closeModal(); // Закрываем модальное окно (если нужно)
   })
   .catch(error => {
     // Обрабатываем ошибки
     console.error('Ошибка:', error);
-    alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.');
+    formStatus.textContent = 'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.';
+    formStatus.style.color = 'red';
   })
   .finally(() => {
     // Восстанавливаем текст кнопки и делаем ее активной

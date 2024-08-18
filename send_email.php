@@ -1,13 +1,16 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+// Получение секретного ключа reCAPTCHA из переменной окружения (рекомендуется)
+$secretKey = getenv('RECAPTCHA_SECRET_KEY');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Валидация reCAPTCHA
-  $secretKey = '6LepcCkqAAAAAKJ8DRaaR0OzUe6NgcujWbo5UsVs';
   $response = $_POST['g-recaptcha-response'];
 
   // Проверка, что ответ reCAPTCHA не пустой
   if (empty($response)) {
+    http_response_code(400);
     die("Ошибка: Пожалуйста, подтвердите, что вы не робот.");
   }
 
@@ -55,17 +58,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Отправляем письмо
     if (mail($to, $subject, $message, $headers)) {
-      echo "Письмо успешно отправлено!";
+      // Успешная отправка
+      http_response_code(200);
+      echo "Заявка успешно отправлена!";
     } else {
-      echo "Ошибка отправки письма.";
+      // Ошибка отправки
+      http_response_code(500);
+      echo "Ошибка отправки заявки. Пожалуйста, попробуйте позже.";
     }
 
   } else {
-    die("Ошибка: Пожалуйста, подтвердите, что вы не робот.");
+    // Ошибка reCAPTCHA
+    http_response_code(400);
+    echo "Ошибка: Пожалуйста, подтвердите, что вы не робот.";
   }
 
 } else {
-  // Метод запроса не POST, ничего не делаем
+  // Недопустимый метод запроса
+  http_response_code(405);
+  echo "Недопустимый метод запроса.";
 }
 
 ?>
