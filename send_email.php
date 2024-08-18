@@ -3,12 +3,13 @@
 // Получение секретного ключа reCAPTCHA из переменной окружения (рекомендуется)
 $secretKey = getenv('RECAPTCHA_SECRET_KEY');
 
+// Определение пути к лог-файлу
+$log_file = 'send_email.log';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  // ---  DEBUG: Вывод POST данных ---
-  echo "<pre>";
-  print_r($_POST);
-  echo "</pre>";
+  // ---  DEBUG: Запись POST данных в лог-файл ---
+  error_log("POST data: " . print_r($_POST, true), 3, $log_file);
   // --- Конец DEBUG ---
 
   // Валидация reCAPTCHA
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Проверка, что ответ reCAPTCHA не пустой
   if (empty($response)) {
     http_response_code(400);
+    error_log("Ошибка: Пожалуйста, подтвердите, что вы не робот.", 3, $log_file);
     die("Ошибка: Пожалуйста, подтвердите, что вы не робот.");
   }
 
@@ -24,10 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$response&remoteip=$remoteip";
   $recaptcha = json_decode(file_get_contents($url), true);
 
-  // --- DEBUG: Вывод результата reCAPTCHA ---
-  echo "<pre>";
-  print_r($recaptcha);
-  echo "</pre>";
+  // --- DEBUG: Запись результата reCAPTCHA в лог-файл ---
+  error_log("reCAPTCHA result: " . print_r($recaptcha, true), 3, $log_file);
   // --- Конец DEBUG ---
 
   if ($recaptcha['success'] == true) {
@@ -68,12 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= 'From: <noreply@consultib.ru>' . "\r\n";
 
-    // --- DEBUG: Вывод данных для отправки письма ---
-    echo "<h1>DEBUG: Данные для отправки письма</h1>";
-    echo "<p><strong>To:</strong> " . $to . "</p>";
-    echo "<p><strong>Subject:</strong> " . $subject . "</p>";
-    echo "<p><strong>Message:</strong> " . $message . "</p>";
-    echo "<p><strong>Headers:</strong> " . $headers . "</p>";
+    // --- DEBUG: Запись данных для отправки письма в лог-файл ---
+    error_log("Email data: To: " . $to . ", Subject: " . $subject . ", Message: " . $message . ", Headers: " . $headers, 3, $log_file);
     // --- Конец DEBUG ---
 
     // Отправляем письмо
@@ -84,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
       // Ошибка отправки
       http_response_code(500);
+      error_log("Ошибка отправки письма.", 3, $log_file);
       echo "Ошибка отправки заявки. Пожалуйста, попробуйте позже.";
     }
 
