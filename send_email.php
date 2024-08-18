@@ -1,9 +1,15 @@
 <?php
 
 // Получение секретного ключа reCAPTCHA из переменной окружения (рекомендуется)
-$secretKey = "6LepcCkqAAAAAKJ8DRaaR0OzUe6NgcujWbo5UsVs"
+$secretKey = getenv('RECAPTCHA_SECRET_KEY');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  // ---  DEBUG: Вывод POST данных ---
+  echo "<pre>";
+  print_r($_POST);
+  echo "</pre>";
+  // --- Конец DEBUG ---
 
   // Валидация reCAPTCHA
   $response = $_POST['g-recaptcha-response'];
@@ -17,6 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $remoteip = $_SERVER['REMOTE_ADDR'];
   $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$response&remoteip=$remoteip";
   $recaptcha = json_decode(file_get_contents($url), true);
+
+  // --- DEBUG: Вывод результата reCAPTCHA ---
+  echo "<pre>";
+  print_r($recaptcha);
+  echo "</pre>";
+  // --- Конец DEBUG ---
 
   if ($recaptcha['success'] == true) {
 
@@ -55,6 +67,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= 'From: <noreply@consultib.ru>' . "\r\n";
+
+    // --- DEBUG: Вывод данных для отправки письма ---
+    echo "<h1>DEBUG: Данные для отправки письма</h1>";
+    echo "<p><strong>To:</strong> " . $to . "</p>";
+    echo "<p><strong>Subject:</strong> " . $subject . "</p>";
+    echo "<p><strong>Message:</strong> " . $message . "</p>";
+    echo "<p><strong>Headers:</strong> " . $headers . "</p>";
+    // --- Конец DEBUG ---
 
     // Отправляем письмо
     if (mail($to, $subject, $message, $headers)) {
