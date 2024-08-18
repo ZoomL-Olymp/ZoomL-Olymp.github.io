@@ -28,9 +28,11 @@ window.addEventListener('click', (event) => {
 
 // --- Анимация появления секций ---
 
-const sections = document.querySelectorAll('.hero, .services, .approach, .contacts'); // Добавили .contacts
+const sections = document.querySelectorAll('.hero, .services, .approach, .contacts');
+const body = document.body;
 
 function checkVisibility() {
+  console.log("checkVisibility called"); // Для отладки
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
@@ -41,7 +43,10 @@ function checkVisibility() {
   });
 }
 
-window.addEventListener('scroll', checkVisibility);
+body.addEventListener('scroll', checkVisibility); // Убедитесь, что обработчик события подключен
+body.addEventListener ("scroll",() => {
+  console.log("white creativity");
+})
 checkVisibility(); // Проверяем видимость при загрузке страницы
 
 // --- Обработка клика на гамбургер-меню --- 
