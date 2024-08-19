@@ -424,11 +424,11 @@ input:-moz-placeholder { /* Firefox 18- */
   .approach-steps {
     grid-template-columns: 1fr;
   }
-
-  .modal {
+  
+  .modal-content {
     width: 95%; /* Модальное окно занимает почти всю ширину экрана */
     max-width: none; /* Убираем ограничение максимальной ширины */
-    margin: 5% auto; /* Уменьшаем отступы сверху и снизу */
+    margin-top: 30px;
   }
 
   /* Form */
