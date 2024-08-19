@@ -45,20 +45,20 @@ function checkVisibility() {
 body.addEventListener('scroll', checkVisibility);
 checkVisibility(); // Проверяем видимость при загрузке страницы
 
-// --- Обработка клика на гамбургер-меню --- 
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
+// --- Обработка клика на гамбургер-меню ---
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 
-menuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
+hamburgerMenu.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
 });
 
 // Закрытие меню при клике вне его
 document.addEventListener('click', (event) => {
-  const isClickInsideMenu = menuToggle.parentElement.contains(event.target);
+  const isClickInsideMenu = hamburgerMenu.contains(event.target) || mobileMenu.contains(event.target); 
 
-  if (!isClickInsideMenu && navMenu.classList.contains('show')) {
-    navMenu.classList.remove('show');
+  if (!isClickInsideMenu && mobileMenu.classList.contains('active')) {
+    mobileMenu.classList.remove('active');
   }
 });
 

@@ -15,29 +15,36 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-          <nav class="header-nav">
-            <a href="#hero" class="logo">
-              <img src="images/logo.png" alt="Логотип ConsultIB">
-            </a>
-    
-            <div class="menu-container">
-              <button class="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-              </button>
-              <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">О нас</a></li>
-                <li><a href="#services" class="nav-link">Услуги</a></li>
-                <li><a href="#apply" class="nav-link" onclick="openModal()">Оставить заявку</a></li> 
-                <li><a href="#contacts" class="nav-link">Контакты</a></li>
-              </ul>
-            </div>
-          </nav>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/logo.png" alt="Логотип"> 
         </div>
-      </header>
+        <nav>
+          <ul class="desktop-menu"> 
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#" onclick="openModal()">Оставить заявку</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+  
+          <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+  
+          <ul class="mobile-menu"> 
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#" onclick="openModal()">Оставить заявку</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
     <main> 
         <section class="hero" id="hero">
@@ -49,52 +56,44 @@
             </div>
         </section>
 
-        <section class="services" id="services">
+        <section class="services section" id="services">
           <div class="container">
               <h2>Наши услуги</h2>
               <div class="services-grid">
                   <div class="service">
-                      <div class="service-content">
-                          <div class="service-icon">
-                              <img src="images/icons/icon1.png" alt="Иконка услуги 1">
-                          </div>
-                          <h3>Пакет "Киберщит"</h3>
-                          <p>Оценка состояния защищенности бизнес-процессов компании. Аудит ИТ и ИБ инфраструктуры, выявление уязвимых мест, разработка рекомендаций по оптимизации и совершенствованию.</p>
-                          <a href="files/Консалтинг_ИБ_Пакет_Киберщит_v1.pdf" target="_blank" download="Пакет Киберщит" class="btn"> Подробнее </a>
+                      <div class="service-icon">
+                          <img src="images/icons/icon1.png" alt="Иконка услуги 1">
                       </div>
+                      <h3>Пакет "Киберщит"</h3>
+                      <p>Оценка состояния защищенности бизнес-процессов компании. Аудит ИТ и ИБ инфраструктуры, выявление уязвимых мест, разработка рекомендаций по оптимизации и совершенствованию.</p>
+                      <a href="files/Консалтинг_ИБ_Пакет_Киберщит_v1.pdf" target="_blank" download="Пакет Киберщит" class="btn"> Подробнее </a>
                   </div>
                   <div class="service">
-                      <div class="service-content">
-                          <div class="service-icon">
-                              <img src="images/icons/icon2.png" alt="Иконка услуги 2">
-                          </div>
-                          <h3>Пакет "Киберщит+"</h3>
-                          <p>Дополнительно проводится оценка и анализ защищенности и конфигурации инфраструктуры разработки.</p>
+                      <div class="service-icon">
+                          <img src="images/icons/icon2.png" alt="Иконка услуги 2">
                       </div>
+                      <h3>Пакет "Киберщит+"</h3>
+                      <p>Дополнительно проводится оценка и анализ защищенности и конфигурации инфраструктуры разработки.</p>
                   </div>
                   <div class="service">
-                      <div class="service-content">
-                          <div class="service-icon">
-                              <img src="images/icons/icon_wip.png" alt="Иконка услуги 3">
-                          </div>
-                          <h3>В разработке!</h3>
-                          <p>Ожидайте изменений.</p>
+                      <div class="service-icon">
+                          <img src="images/icons/icon_wip.png" alt="Иконка услуги 3">
                       </div>
+                      <h3>В разработке!</h3>
+                      <p>Ожидайте изменений.</p>
                   </div>
                   <div class="service">
-                      <div class="service-content">
-                          <div class="service-icon">
-                              <img src="images/icons/icon_wip.png" alt="Иконка услуги 4">
-                          </div>
-                          <h3>В разработке!</h3>
-                          <p>Ожидайте изменений.</p>
+                      <div class="service-icon">
+                          <img src="images/icons/icon_wip.png" alt="Иконка услуги 4">
                       </div>
+                      <h3>В разработке!</h3>
+                      <p>Ожидайте изменений.</p>
                   </div>
               </div>
           </div>
       </section>
 
-      <section class="approach" id="approach">
+      <section class="approach section" id="approach">
           <div class="container">
               <h2>Наши принципы</h2>
               <div class="approach-steps">
@@ -126,34 +125,38 @@
           </div>
       </section>
 
-        <section class="contacts" id="contacts">
-            <div class="container">
-                <h2>Контакты</h2>
-                <p>Свяжитесь с нами, чтобы получить бесплатную консультацию и узнать больше о наших услугах.</p>
-                <ul>
-                    <li>
+      <section class="contacts section" id="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <p>Свяжитесь с нами, чтобы получить бесплатную консультацию и узнать больше о наших услугах.</p>
+            <ul>
+                <li>
+                    <a href="tel:+79916302912">
                         <img src="images/icons/phone-icon.png" alt="Иконка телефона">
                         +7 (991) 630-29-12
-                    </li>
-                    <li>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:sale@consultib.ru">
                         <img src="images/icons/email-icon.png" alt="Иконка почты">
                         sale@consultib.ru
-                    </li>
-                    <li>
-                        <a href="https://t.me/ConsultIS" target="_blank">
-                        <img src="images/icons/tg-icon.png" alt="Иконка Telegram">
-                        </a>
-                        Telegram
-                    </li>
-                    <li>
-                        <a href="https://wa.me/message/4KC6R5RJCUDPN1" target="_blank">
-                        <img src="images/icons/wa-icon.png" alt="Иконка WhatsApp">
-                        </a>
-                        WhatsApp
-                    </li>
-                </ul>
-            </div>
-        </section>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/ConsultIS" target="_blank">
+                    <img src="images/icons/tg-icon.png" alt="Иконка Telegram">
+                    Telegram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/message/4KC6R5RJCUDPN1" target="_blank">
+                    <img src="images/icons/wa-icon.png" alt="Иконка WhatsApp">
+                    WhatsApp
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
 
         <div id="application-modal" class="modal">
           <div class="modal-content">
