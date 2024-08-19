@@ -44,7 +44,7 @@ header {
 
 .logo img {
   margin-right: auto;
-  height: 100px;
+  height: 80px;
   flex-shrink: 0;
 }
 
@@ -423,5 +423,29 @@ input:-moz-placeholder { /* Firefox 18- */
   .services-grid, 
   .approach-steps {
     grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    width: 95%; /* Модальное окно занимает почти всю ширину экрана */
+    max-width: none; /* Убираем ограничение максимальной ширины */
+    margin: 5% auto; /* Уменьшаем отступы сверху и снизу */
+  }
+
+  /* Form */
+  #application-form {
+    max-width: 100%; /* Форма занимает всю ширину модального окна */
+  }
+
+  .form-group {
+    margin-bottom: 15px; /* Уменьшаем отступы между полями формы */
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* Уменьшаем размер шрифта */
+  }
+
+  .btn, .g-recaptcha {
+    font-size: 16px; /* Уменьшаем размер шрифта кнопки */
   }
 }
