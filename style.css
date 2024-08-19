@@ -359,10 +359,6 @@ footer {
   display: flex;
 }
 
-.form-group label {
-  white-space: nowrap; 
-}
-
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -380,6 +376,9 @@ footer {
 
 .form-group input[type="checkbox"] {
   margin-right: 10px;
+  margin-left: 5px;
+  max-width: 20px;
+  max-height: 20px;
 }
 
 input::placeholder { /* Chrome/Opera/Safari */
