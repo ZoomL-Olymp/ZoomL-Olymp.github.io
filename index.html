@@ -158,43 +158,46 @@
         </div>
     </section>
 
-        <div id="application-modal" class="modal">
-          <div class="modal-content">
-            <span class="close-modal">×</span>
-            <section class="apply" id="apply">
-              <div class="container">
-                <h2>Оставить заявку</h2>
-                <form id="application-form" action="send_email.php" method="post"> 
-                  <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="ФИО" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Почта" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" id="organization" name="organization" placeholder="Организация">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" id="inn" name="inn" placeholder="ИНН организации">
-                  </div>
-                  <div class="form-group">
-                    <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
-                    <label for="gdpr-consent">
-                      Даю согласие на <a href="files/privacy_policy.pdf" target="_blank">обработку персональных данных</a>
-                    </label>
-                  </div>
-                  <button class="g-recaptcha" 
-                    data-sitekey="6LepcCkqAAAAAETd59Uu6Di00cSukVEOe6BcehxU" 
-                    data-callback='onSubmit' 
-                    data-action='submit'>Отправить</button>
-                </form>
+    <div id="application-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <section class="apply" id="apply">
+          <div class="container">
+            <h2>Оставить заявку</h2>
+            <form id="application-form" action="send_email.php" method="post"> 
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="ФИО *" required>
               </div>
-            </section>
+              <div class="form-group">
+                <input type="tel" id="phone" name="phone" placeholder="Телефон *" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Почта *" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="organization" name="organization" placeholder="Организация *" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="inn" name="inn" placeholder="ИНН организации *" required>
+              </div>
+              <div class="form-group">
+                <p style="text: 10px; color: firebrick; font-size: 18px">* — поле обязательное к заполнению</p>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
+                <label for="gdpr-consent">
+                  Даю согласие на <a href="files/privacy_policy.pdf" target="_blank">обработку персональных данных</a>
+                </label>
+              </div>
+              <button class="g-recaptcha" 
+                data-sitekey="6LepcCkqAAAAAETd59Uu6Di00cSukVEOe6BcehxU" 
+                data-callback='onSubmit' 
+                data-action='submit'>Отправить</button>
+            </form>
           </div>
-        </div>
+        </section>
+      </div>
+    </div>
 
         <footer>
             <div class="container">

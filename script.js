@@ -71,6 +71,23 @@ form.parentNode.insertBefore(formStatus, form.nextSibling); // Добавляе�
 form.addEventListener('submit', function(event) {
   event.preventDefault(); // Предотвращаем отправку формы по умолчанию
 
+  // Проверка на заполненность полей
+  let isValid = true;
+  const requiredFields = form.querySelectorAll('[required]');
+  requiredFields.forEach(field => {
+    if (!field.value) {
+      field.classList.add('invalid'); // Добавляем класс для визуального выделения
+      isValid = false;
+    } else {
+      field.classList.remove('invalid');
+    }
+  });
+
+  if (!isValid) {
+    formStatus.textContent = 'Пожалуйста, заполните все обязательные поля.';
+    formStatus.style.color = 'red';
+    return; // Прекращаем отправку, если есть незаполненные поля
+  }
   // Получаем кнопку "Отправить"
   const submitButton = document.querySelector('.btn'); 
 
