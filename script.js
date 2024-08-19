@@ -65,10 +65,11 @@ document.addEventListener('click', (event) => {
 // --- Обработка отправки формы ---
 
 const form = document.getElementById('application-form');
+const submitButton = document.getElementById("submitButton")
 const formStatus = document.createElement('div'); // Создаем элемент для отображения статуса
 form.parentNode.insertBefore(formStatus, form.nextSibling); // Добавляем его после формы
 
-form.addEventListener('submit', function(event) {
+submitButton.addEventListener('click', function(event) {
   event.preventDefault(); // Предотвращаем отправку формы по умолчанию
 
   // Проверка на заполненность полей
@@ -85,7 +86,8 @@ form.addEventListener('submit', function(event) {
 
   if (!isValid) {
     formStatus.textContent = 'Пожалуйста, заполните все обязательные поля.';
-    formStatus.style.color = 'red';
+    formStatus.style.fontSize = "14px";
+    formStatus.style.color = 'firebrick';
     return; // Прекращаем отправку, если есть незаполненные поля
   }
   // Получаем кнопку "Отправить"

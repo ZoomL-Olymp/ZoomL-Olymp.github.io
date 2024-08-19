@@ -354,10 +354,6 @@ footer {
   margin-bottom: 20px;
 }
 
-.invalid {
-  border: 2px solid red; /* Или другой стиль выделения */
-}
-
 .form-group {
   margin-bottom: 20px;
   display: flex;
@@ -372,6 +368,10 @@ footer {
   border-radius: 5px;
   background-color: #212D3F;
   color: #E7E9EB;
+}
+
+.invalid {
+  color:red;
 }
 
 .form-group a {

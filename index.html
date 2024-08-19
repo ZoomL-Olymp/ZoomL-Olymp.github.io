@@ -164,6 +164,7 @@
         <section class="apply" id="apply">
           <div class="container">
             <h2>Оставить заявку</h2>
+            <p style="text-align: left; font-size:14px; color:white; margin:auto;">Все поля обязательны для заполнения</p>
             <form id="application-form" action="send_email.php" method="post"> 
               <div class="form-group">
                 <input type="text" id="name" name="name" placeholder="ФИО *" required>
@@ -175,13 +176,10 @@
                 <input type="email" id="email" name="email" placeholder="Почта *" required>
               </div>
               <div class="form-group">
-                <input type="text" id="organization" name="organization" placeholder="Организация *" required>
+                <input type="text" id="organization" name="organization" placeholder="Название организации *" required>
               </div>
               <div class="form-group">
-                <input type="text" id="inn" name="inn" placeholder="ИНН организации *" required>
-              </div>
-              <div class="form-group">
-                <p style="text: 10px; color: firebrick; font-size: 18px">* — поле обязательное к заполнению</p>
+                <input type="text" id="inn" name="inn" placeholder="ИНН Вашей организации *" required>
               </div>
               <div class="form-group">
                 <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
@@ -192,7 +190,8 @@
               <button class="g-recaptcha" 
                 data-sitekey="6LepcCkqAAAAAETd59Uu6Di00cSukVEOe6BcehxU" 
                 data-callback='onSubmit' 
-                data-action='submit'>Отправить</button>
+                data-action='submit' type='submit'
+                id="submitButton">Отправить</button>
             </form>
           </div>
         </section>
